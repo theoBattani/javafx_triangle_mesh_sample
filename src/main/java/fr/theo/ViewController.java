@@ -11,9 +11,14 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.SubScene;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.Menu;
+import javafx.scene.Group;
+import javafx.scene.Camera;
+import javafx.scene.PerspectiveCamera;
+import javafx.scene.shape.TriangleMesh;
+import javafx.scene.paint.PhongMaterial;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.MeshView;
+import javafx.scene.shape.DrawMode;
 
 public class ViewController {
 
@@ -26,20 +31,47 @@ public class ViewController {
   // Values injected by FXMLLoader
   @FXML private Stage stage; // fx:id="stage"
   @FXML private Scene scene; // fx:id="stage"
-  @FXML private SubScene subScene; // fx:id="subScene"
-  @FXML private MenuBar menuBar; // fx:id="menuBar"
-  @FXML private Menu editMenu; // fx:id="editMenu"
-  @FXML private Menu fileMenu; // fx:id="fileMenu"
-  @FXML private Menu helpMenu; // fx:id="helpMenu"
+  @FXML private Group group; // fx:id="group"
 
   // This method is called by the FXMLLoader when initialization is complete
   @FXML void initialize() {
-    assert editMenu != null : "fx:id=\"editMenu\" was not injected: check your FXML file 'view.fxml'.";
-    assert fileMenu != null : "fx:id=\"fileMenu\" was not injected: check your FXML file 'view.fxml'.";
-    assert helpMenu != null : "fx:id=\"helpMenu\" was not injected: check your FXML file 'view.fxml'.";
-    assert menuBar  != null : "fx:id=\"menuBar\" was not injected: check your FXML file 'view.fxml'.";
-    assert subScene != null : "fx:id=\"subScene\" was not injected: check your FXML file 'view.fxml'.";
-    // System.out.println(subScene.getAntiAliasing());
-    new Renderer(subScene);
+    Camera camera = new PerspectiveCamera();
+    camera.setNearClip(0);
+    camera.setFarClip(10000);
+    camera.translateZProperty().set(-100);
+    TriangleMesh mesh = new TriangleMesh();
+    mesh.getTexCoords().addAll(0, 0);
+    float h = 150;
+    float s = 300;
+    mesh.getPoints().addAll(
+         0, 0,    0,
+         0, h, -s/2,
+      -s/2, h,    0,
+       s/2, h,    0,
+         0, h,  s/2
+    );
+    mesh.getFaces().addAll(
+      0, 0,  2, 0,  1, 0,
+      0, 0,  1, 0,  3, 0,
+      0, 0,  3, 0,  4, 0,
+      0, 0,  4, 0,  2, 0,
+      4, 0,  1, 0,  2, 0,
+      4, 0,  3, 0,  1, 0
+    );
+    PhongMaterial material = new PhongMaterial();
+    material.setDiffuseColor(Color.DARKBLUE);
+    material.setSpecularColor(Color.BLUE);
+    MeshView view = new MeshView(mesh);
+    view.setDrawMode(DrawMode.FILL);
+    view.setMaterial(material);
+    Group root = new Group();
+    scene.setRoot(root);
   }
 }
+
+
+
+
+
+
+

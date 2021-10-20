@@ -1,81 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Scene?>
-<?import javafx.scene.SubScene?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.stage.Stage?>
-<?import javafx.scene.SceneAntialiasing?>
 
-<Stage fx:id="stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.theo.ViewController">
+<Stage fx:id="stage" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.theo.ViewController">
    <scene>
       <Scene fx:id="scene">
-         <root>
-            <AnchorPane id="AnchorPane">
-               <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <MenuBar fx:id="menuBar">
-                          <menus>
-                            <Menu fx:id="fileMenu" mnemonicParsing="false" text="File">
-                              <items>
-                                <MenuItem mnemonicParsing="false" text="Close" />
-                              </items>
-                            </Menu>
-                            <Menu fx:id="editMenu" mnemonicParsing="false" text="Edit">
-                              <items>
-                                <MenuItem mnemonicParsing="false" text="Delete" />
-                              </items>
-                            </Menu>
-                            <Menu fx:id="helpMenu" mnemonicParsing="false" text="Help">
-                              <items>
-                                <MenuItem mnemonicParsing="false" text="About" />
-                              </items>
-                            </Menu>
-                          </menus>
-                        </MenuBar>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <SubScene fx:id="subScene" depthTest="ENABLE" height="200.0" width="200.0">
-                                <antiAliasing>
-                                  <SceneAntialiasing fx:constant="BALANCED"/>
-                                </antiAliasing>
-                                <root>
-                                  <Region />
-                                </root>
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="1.0">
-                                       <stops>
-                                          <Stop>
-                                             <color>
-                                                <Color />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="1.0">
-                                             <color>
-                                                <Color red="1.0" green="1.0" blue="1.0" />
-                                             </color>
-                                          </Stop>
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                              </SubScene>
-                              <VBox prefHeight="200.0" prefWidth="100.0" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-               </children>
-            </AnchorPane>
-         </root>
+         <Root>
+            <Group fx:id="group"></Group>
+         </Root>
       </Scene>
    </scene>
 </Stage>
