@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.stage.Stage?>
 <?import javafx.scene.Scene?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.stage.Stage?>
+<?import javafx.scene.Group?>
 
-<Stage fx:id="stage" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.theo.ViewController">
+<Stage fx:id="stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.theo.ViewController">
    <scene>
       <Scene fx:id="scene">
-         <Root>
-            <Group fx:id="group"></Group>
-         </Root>
+         <Group fx:id="group"></Group>
       </Scene>
    </scene>
 </Stage>

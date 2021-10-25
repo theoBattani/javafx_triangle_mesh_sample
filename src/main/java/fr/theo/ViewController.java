@@ -38,7 +38,9 @@ public class ViewController {
     Camera camera = new PerspectiveCamera();
     camera.setNearClip(0);
     camera.setFarClip(10000);
-    camera.translateZProperty().set(-100);
+    camera.translateXProperty().set(-scene.getWidth() / 2);
+    camera.translateYProperty().set(scene.getHeight() / 2);
+    camera.translateZProperty().set(-500);
     TriangleMesh mesh = new TriangleMesh();
     mesh.getTexCoords().addAll(0, 0);
     float h = 150;
@@ -64,8 +66,8 @@ public class ViewController {
     MeshView view = new MeshView(mesh);
     view.setDrawMode(DrawMode.FILL);
     view.setMaterial(material);
-    Group root = new Group();
-    scene.setRoot(root);
+    group.getChildren().addAll(view, camera);
+    scene.setRoot(group);
   }
 }
 
